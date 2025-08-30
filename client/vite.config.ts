@@ -1,6 +1,7 @@
-// client/vite.config.ts
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
   base: '/ddoser/',
@@ -25,8 +26,8 @@ export default defineConfig({
               } else {
                 anyRes?.end?.();
               }
-            } catch (_) {
-              /* ignore */
+            } catch (err) {
+              console.log(err);
             }
             console.error('[vite-proxy] error:', err?.message || err);
           });
@@ -56,5 +57,14 @@ export default defineConfig({
   },
   preview: {
     port: 3043,
+  },
+  resolve: {
+    alias: {
+      '@app': path.resolve(__dirname, 'src/app'),
+      '@entities': path.resolve(__dirname, 'src/entities'),
+      '@features': path.resolve(__dirname, 'src/features'),
+      '@shared': path.resolve(__dirname, 'src/shared'),
+      '@widgets': path.resolve(__dirname, 'src/widgets'),
+    },
   },
 });

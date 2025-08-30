@@ -14,12 +14,11 @@ services:
       context: ./server
       dockerfile: Dockerfile.dev
     ports:
-      - "${API_PORT}:3000"   # 5043 -> 3000 внутрь
+      - "${API_PORT}:3000"
     depends_on:
       - db
     volumes:
-      - ./server:/app
-      - /app/node_modules
+      - ./server/src:/app/src           # монтируем только исходники
     command: yarn start:dev
 
   client:
@@ -27,14 +26,13 @@ services:
       context: ./client
       dockerfile: Dockerfile.dev
     ports:
-      - "${WEB_PORT}:5173"   # 3043 -> 5173 внутрь
+      - "${WEB_PORT}:5173"
     depends_on:
       - server
     environment:
-      - VITE_API_URL=http://localhost:${API_PORT}
+      - VITE_API_URL=http://server:3000   # используем hostname сервиса
     volumes:
-      - ./client:/app
-      - /app/node_modules
+      - ./client/src:/app/src              # монтируем только исходники
     command: yarn dev --host 0.0.0.0 --port 5173
 
 volumes:

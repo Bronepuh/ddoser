@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+export type SectionState = 'idle' | 'scanning' | 'done' | 'error';
+
 export type Severity = 'info' | 'low' | 'medium' | 'high';
 export type Finding = {
   id: string;

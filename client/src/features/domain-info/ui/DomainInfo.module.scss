@@ -1,0 +1,51 @@
+.card {
+  margin-top: 16px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.descriptions {
+  width: 100%;
+}
+
+.txt {
+  word-break: break-word;
+}
+
+.ipList {
+  .ant-list-item {
+    padding: 8px 0;
+  }
+}
+
+.ipCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ipHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.ipDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    word-break: break-word;
+  }
+}

@@ -1,5 +1,5 @@
-import type { CheckId, StreamEvent } from './types';
 import { API_BASE } from './api';
+import type { CheckId, StreamEvent } from './types';
 
 export type SSEHandlers = {
   onStart?: (id: CheckId) => void;
@@ -34,7 +34,9 @@ export async function streamScan(domain: string, h: SSEHandlers) {
       if (evt.type === 'start') h.onStart?.(evt.checkId);
       else if (evt.type === 'result') h.onResult?.(evt);
       else if (evt.type === 'error') h.onError?.(evt.checkId, evt.message);
-    } catch {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   while (true) {
