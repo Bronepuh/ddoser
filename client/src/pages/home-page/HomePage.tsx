@@ -171,7 +171,7 @@ export default function HomePage() {
         });
         const json = await scanOnce(domain);
         const next: Partial<Record<CheckId, CheckResult>> = {};
-        json.results.forEach((r) => (next[r.checkId as CheckId] = r));
+        json.results.forEach((r: any) => (next[r.checkId as CheckId] = r));
         resultsRef.current = next;
         setSectionStates({ dns: 'done', tls: 'done', http: 'done' });
         setData(json);
