@@ -18,14 +18,13 @@ export default function MainLayout({
             DDOSER
           </Typography.Title>
         </Space>
+        <StatsWidget />
       </Header>
 
       <Content className={styles.content}>{children}</Content>
 
       <Footer className={styles.footer}>
-        © 2025 bronepuh services |{' '}
-        <a href="https://bronepuh.ru">bronepuh.ru</a>
-        <StatsWidget />
+        <a href="https://bronepuh.ru">© 2025 bronepuh services</a>
       </Footer>
     </Layout>
   );

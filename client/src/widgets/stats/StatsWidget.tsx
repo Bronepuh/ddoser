@@ -25,17 +25,18 @@ const StatsWidget: React.FC = () => {
     <div
       style={{
         position: 'absolute',
-        top: 0,
-        right: 20,
+        top: 5,
+        right: 10,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         borderRadius: 8,
-        padding: '0 12px',
+        padding: '0 5px',
         height: 30,
-        width: 110,
+        width: 80,
         boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
         fontSize: 14,
+        color: 'white',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>

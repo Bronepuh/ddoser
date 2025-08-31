@@ -214,7 +214,12 @@ export default function HomePage() {
         </Row>
 
         {/* Input + button */}
-        <Card style={{ marginTop: 16 }} bodyStyle={{ padding: 0 }}>
+        <Card
+          style={{ marginTop: 16 }}
+          styles={{
+            body: { padding: 0 },
+          }}
+        >
           <Space.Compact style={{ width: '100%' }}>
             <Input
               size="large"
