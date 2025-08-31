@@ -10,14 +10,13 @@ export default defineConfig({
     host: true,
     port: 3043,
     proxy: {
-      // /ddoser/api/* → http://localhost:5043/api/*
+      // REST API
       '/ddoser/api': {
         target: 'http://localhost:5043',
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/ddoser\/api/, '/api'),
         configure: (proxy /*: import('http-proxy').ProxyServer*/) => {
           proxy.on('error', (err, res /* ServerResponse | Socket */) => {
-            // Если это ServerResponse — ответим текстом; если Socket — просто закроем.
             const anyRes = res as any;
             try {
               if (anyRes && typeof anyRes.writeHead === 'function') {

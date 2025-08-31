@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "scripts": {
     "local:build": "docker compose -f docker-compose.dev.yml build",
-    "local:up": "docker compose -f docker-compose.dev.yml up -d",
+    "local:up": "docker compose -f docker-compose.dev.yml up -d && docker compose -f docker-compose.dev.yml logs -f",
     "local:down": "docker compose -f docker-compose.dev.yml down",
     "local:logs": "docker compose -f docker-compose.dev.yml logs -f",
     "prod:build": "docker compose -f docker-compose.prod.yml build",
-    "prod:up": "docker compose -f docker-compose.prod.yml up -d",
+    "prod:up": "docker compose -f docker-compose.prod.yml up -d && docker compose -f docker-compose.prod.yml logs -f",
     "prod:down": "docker compose -f docker-compose.prod.yml down",
     "prod:logs": "docker compose -f docker-compose.prod.yml logs -f"
   },

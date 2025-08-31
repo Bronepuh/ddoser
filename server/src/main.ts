@@ -33,7 +33,11 @@ async function bootstrap() {
   });
 
   if (process.env.NODE_ENV !== 'production') {
-    app.enableCors({ origin: ['http://localhost:3043'] });
+    app.enableCors({
+      origin: ['http://localhost:3043'],
+      methods: ['GET', 'POST'],
+      credentials: true,
+    });
   }
 
   // ВКЛЮЧИ фильтр (можно даже в prod временно, чтобы увидеть причину)

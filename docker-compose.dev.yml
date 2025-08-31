@@ -18,7 +18,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./server/src:/app/src           # монтируем только исходники
+      - ./server/src:/app/src
     command: yarn start:dev
 
   client:
@@ -26,14 +26,14 @@ services:
       context: ./client
       dockerfile: Dockerfile.dev
     ports:
-      - "${WEB_PORT}:5173"
+      - "${WEB_PORT}:3043"
     depends_on:
       - server
     environment:
-      - VITE_API_URL=http://server:3000   # используем hostname сервиса
+      - VITE_SOCKET_URL=http://localhost:5043
     volumes:
-      - ./client/src:/app/src              # монтируем только исходники
-    command: yarn dev --host 0.0.0.0 --port 5173
+      - ./client/src:/app/src
+    command: yarn dev --host 0.0.0.0 --port 3043
 
 volumes:
   pgdata_dev:

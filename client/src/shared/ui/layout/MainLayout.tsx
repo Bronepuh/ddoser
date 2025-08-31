@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout, Space, Typography } from 'antd';
 import styles from './MainLayout.module.scss';
+import StatsWidget from '@widgets/stats/StatsWidget';
 
 const { Header, Content, Footer } = Layout;
 
@@ -22,7 +23,9 @@ export default function MainLayout({
       <Content className={styles.content}>{children}</Content>
 
       <Footer className={styles.footer}>
-        © 2025 bronepuh services | <a href="https://bronepuh.ru">bronepuh.ru</a>
+        © 2025 bronepuh services |{' '}
+        <a href="https://bronepuh.ru">bronepuh.ru</a>
+        <StatsWidget />
       </Footer>
     </Layout>
   );
